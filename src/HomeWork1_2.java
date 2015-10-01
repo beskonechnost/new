@@ -15,7 +15,6 @@ public class HomeWork1_2 {
         for (int i = 0; i < mass.length; i++){
             mass[i]=scan.nextInt();
         }
-        scan.close();
         //1. Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
         String ms[] = new String[n];
         byte ms1[] = new byte[n];
@@ -195,6 +194,26 @@ public class HomeWork1_2 {
             System.out.println("Число, состоящее только из различных цифр: "+only_different_numbers);
         else System.out.println("Число, состоящее только из различных цифр: такого числа нет");
         */
+        //8. Вывести числа от 1 до k в виде матрицы N x N слева направо и сверху вниз.
+        System.out.print("Введите значение параметра к: ");
+        int k = scan.nextInt();
+        System.out.print("Зададим размерность вывода NxN: ");
+        int dimension = scan.nextInt();
+        scan.close();
+        int buffer = 0;
+        for (int i = 0; i < dimension; i++){
+            for (int j = 0; j < dimension; j++){
+                if (buffer < k){
+                    System.out.print(mass[buffer] + " ");
+                    buffer +=1;
+                }
+                if ((buffer >= k)&&(k>n)){
+                    System.out.print("0 ");//Если нехватает элементов основной таблице, или для вывода нужно больше эл-тов,
+                } //то мы забъем все оставшееся пространство вывода нулями.
+            }
+            System.out.println(" ");
+        }
+
 
     }
 }
