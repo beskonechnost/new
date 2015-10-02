@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 
@@ -6,6 +7,7 @@ import java.util.Scanner;
  */
 public class HomeWork1_2 {
     public static void main(String[] args) {
+        /*
         //Ввести n чисел с консоли.
         System.out.print("Введите количество чисел в массиве: ");
         Scanner scan = new Scanner(System.in);
@@ -36,8 +38,10 @@ public class HomeWork1_2 {
         }
         System.out.println("Самое длинное число: "+max_number+", оно имеент длинну: "+max_length);
         System.out.println("Самое короткое число: "+min_number+", оно имеент длинну: "+min_length);
+        */
+        /*
         //2. Упорядочить и вывести числа в порядке возрастания (убывания) значений их длины.
-        /*for (int ii = ms1.length-1; ii >= 0; ii--)
+        for (int ii = ms1.length-1; ii >= 0; ii--)
             for (int i = 0; i < ms1.length; i++) {
                 if (i < ms1.length - 1) {
                     if (ms1[i] > ms1[i + 1]) {
@@ -249,6 +253,151 @@ public class HomeWork1_2 {
                     System.out.println(" ");
                 }
             }
+        }
+        */
+
+        //9.Ввести с консоли n-размерность матрицы a [n] [n].
+        // Задать значения элементов матрицы в интервале значений от -n до n с помощью датчика случайных чисел.
+        System.out.print("Введите размерность матрицы: ");
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int a[][] = new int[n][n];
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                a[i][j] = (int)((Math.random()*2*n)-n);
+                System.out.print(a[i][j]+" ");
+            }
+            System.out.println(" ");
+        }
+        System.out.println(" ");
+        /*
+        //9.1. Упорядочить строки (столбцы) матрицы в порядке возрастания значений.
+        //сортировка по строкам
+        for (int i =0; i < a.length; i++){
+            for (int k = a.length-1; k>=0; k--) {
+                for (int j = 0; j < a.length; j++) {
+                    if (j<a.length-1) {
+                        if (a[i][j] > a[i][j + 1]) {
+                            int buf = a[i][j + 1];
+                            a[i][j + 1] = a[i][j];
+                            a[i][j] = buf;
+                        }
+                    }
+                }
+            }
+        }
+        //Дальше сортировка по столбцам
+        for (int j = 0; j<a.length; j++){
+            for (int k = a.length-1; k>=0; k--){
+                for (int i = 0; i < a.length; i++){
+                    if (i<a.length-1){
+                        if (a[i][j]>a[i+1][j]){
+                            int buf = a[i+1][j];
+                            a[i+1][j] =a[i][j];
+                            a[i][j] = buf;
+                        }
+                    }
+                }
+            }
+        }
+        //Вывод отсартированного массива
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < n; j++){
+                System.out.print(a[i][j]+" ");
+            }
+            System.out.println(" ");
+        }
+        */
+        //9.2. Выполнить циклический сдвиг заданной матрицы на k позиций вправо (влево, вверх, вниз).
+        /*
+        //9.3. Найти и вывести наибольшее число возрастающих (убывающих) элементов матрицы, идущих подряд.
+        int i_start =0, j_start =0, i_finish =0, j_finish =0, i_buf = 0, j_buf = 0; int count1 = 0;
+        for (int i = 0; i<a.length; i++) {
+            int count_buf = 0;
+            for (int j = 0; j < a.length; j++) {
+                if (j < a.length - 1) {
+                    if (a[i][j] < a[i][j + 1]) {
+                        count_buf +=1;
+                        if (count1<count_buf){
+
+                        }
+                    } else {
+
+                    }
+                }
+                if (j == a.length - 1) {
+                    if (i < a.length - 1) {
+                        if (a[i][j] < a[i + 1][0]) {
+
+                        }
+                    }
+                }
+            }
+        }
+        */
+        //9.5. Повернуть матрицу на 90 (180, 270) градусов против часовой стрелки.
+        /*
+        int a90[][]=new int[n][n];
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j<a.length; j++){
+                a90[i][j]=a[j][a.length-1-i];
+            }
+        }
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j<a.length; j++){
+                System.out.print(a90[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+        System.out.println(" ");
+        */
+        /*
+        //на 180 градусов
+        int a180[][] = new int[n][n];
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a.length; j++){
+                a180[i][j]=a[a.length-1-i][a.length-1-j];
+            }
+        }
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j<a.length; j++){
+                System.out.print(a180[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+        System.out.println(" ");
+        */
+        /*
+        //на 270 градусов
+        int a270[][] = new int[n][n];
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a.length; j++){
+                a270[i][j]=a[a.length-1-j][i];
+            }
+        }
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j<a.length; j++){
+                System.out.print(a270[i][j] + " ");
+            }
+            System.out.println(" ");
+        }
+        System.out.println(" ");
+        */
+        /*
+        //9.6 Построить матрицу, вычитая из элементов каждой строки матрицы ее среднее арифметическое.
+        int a_middle[] = new int[n];
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a.length; j++){
+                a_middle[i] +=a[j][i];
+            }
+            a_middle[i] /=n;
+        }
+        for (int i = 0; i < a.length; i++){
+            for (int j = 0; j < a.length; j++){
+               a[i][j] = a[i][j]-a_middle[i];
+                System.out.print(a[i][j]+" ");
+            }
+            System.out.println(" ");
         }
         */
 
