@@ -135,6 +135,25 @@ public class HomeWork1_2 {
         if (flag2 == true)
         System.out.println("Количество чисел, содержащих только четные числа: "+count_only_even);
         else System.out.println("Количество чисел, содержащих только четные числа: таких чисел нет");
+        int an_equal_number_of_odd_and_even = 0;
+        for (int i = 0; i < ms.length; i++){
+            if (mass[i]%2==0){
+                byte a[] = ms[i].getBytes();
+                int even = 0;
+                int odd = 0;
+                for (int j = 0; j < a.length; j++){
+                    if (a.length%2==0) {
+                        if (a[j] % 2 == 0) even += 1;
+                        else odd += 1;
+                        if (odd==even){
+                            an_equal_number_of_odd_and_even +=1;
+                        }
+                    }
+                }
+            }
+        }
+        if (an_equal_number_of_odd_and_even !=0) System.out.println("Среди четных, количество с равным числом четных и нечетных цифр: "+an_equal_number_of_odd_and_even);
+        else System.out.println("Среди четных, количество с равным числом четных и нечетных цифр: таких чисел нет.");
         */
         /*
         //6. Найти число, цифры в котором идут в строгом порядке возрастания. Если таких чисел несколько, найти первое из них.
@@ -194,6 +213,7 @@ public class HomeWork1_2 {
             System.out.println("Число, состоящее только из различных цифр: "+only_different_numbers);
         else System.out.println("Число, состоящее только из различных цифр: такого числа нет");
         */
+        /*
         //8. Вывести числа от 1 до k в виде матрицы N x N слева направо и сверху вниз.
         System.out.print("Введите значение параметра к: ");
         int k = scan.nextInt();
@@ -201,18 +221,36 @@ public class HomeWork1_2 {
         int dimension = scan.nextInt();
         scan.close();
         int buffer = 0;
+        int noll = 0;
+        if ((dimension*dimension)>k){
+            noll = dimension*dimension-k;
+            System.out.println("Для вывода матрицы не достает "+noll+" элементов. Заменим эти элементы на 0");
+        }
+        if ((dimension*dimension)<k){
+            System.out.println("Параметер k больше размерности матрицы! Все элементы не будут показаны.");
+        }
         for (int i = 0; i < dimension; i++){
             for (int j = 0; j < dimension; j++){
-                if (buffer < k){
-                    System.out.print(mass[buffer] + " ");
+                if (buffer<=k-1){
+                    if (buffer<=n-1) {
+                        System.out.print(mass[buffer] + " ");
+                        buffer += 1;
+                    }
+                    else {
+                        System.out.print("0 ");
+                        buffer +=1;
+                    }
+                }
+                else {
+                    System.out.print("0 ");
                     buffer +=1;
                 }
-                if ((buffer >= k)&&(k>n)){
-                    System.out.print("0 ");//Если нехватает элементов основной таблице, или для вывода нужно больше эл-тов,
-                } //то мы забъем все оставшееся пространство вывода нулями.
+                if (j==dimension-1){
+                    System.out.println(" ");
+                }
             }
-            System.out.println(" ");
         }
+        */
 
 
     }

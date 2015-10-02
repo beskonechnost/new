@@ -58,7 +58,8 @@ public class HomeWork1_1 {
         */
 
 
-        /*//4. Ввести пароль из командной строки и сравнить его со строкой-образцом.
+        /*
+        //4. Ввести пароль из командной строки и сравнить его со строкой-образцом.
         String sample = "Kod";
         System.out.print("Введите пароль: ");
         Scanner scan = new Scanner(System.in);
@@ -205,10 +206,11 @@ public class HomeWork1_1 {
                 }
                 continue;
             }
-            if (ms1[i] == ((ms1[i - 1] + ms1[i + 1]) / 2))
-            {
-            System.out.println(mass[i]+" ");
-            f5 = 1;
+            if (i<ms1.length-1) {
+                if (ms1[i] == ((ms1[i - 1] + ms1[i + 1]) / 2)) {
+                    System.out.println(mass[i] + " ");
+                    f5 = 1;
+                }
             }
         }
         if (f5==0) System.out.println("таких чисел нет");
