@@ -1,3 +1,7 @@
+import com.UkranianITSchool.Korotkov.ArrayInver;
+import com.UkranianITSchool.Korotkov.WorkFromArray;
+
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
@@ -7,6 +11,16 @@ import java.util.Scanner;
  */
 public class HomeWork1_1 {
     public static void main(String[] args) {
+        System.out.print(Arrays.toString(args));
+        System.out.println("");
+        ArrayInver.invertString(args);
+        System.out.println(Arrays.toString(args));
+        int sum, mul;
+        sum = WorkFromArray.sumElementOfArrayString(args);
+        System.out.println(sum);
+        mul = WorkFromArray.multiplicationElementOfArrayString(args);
+        System.out.println(mul);
+
         /*
         //1. Приветствовать любого пользователя при вводе его имени через командную строку.
         System.out.println("Доброго времени суток, как Вас зовут?");
@@ -91,6 +105,7 @@ public class HomeWork1_1 {
 
 
         //6.Ввести с консоли n целых чисел. На консоль вывести: следующее
+        System.out.println("Перейдем к 6 заданию");
         System.out.print("Введите число n: ");
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
@@ -99,6 +114,11 @@ public class HomeWork1_1 {
             mass[i]=scan.nextInt();
         }
         scan.close();
+        int max = WorkFromArray.maximumElementOfArrayInt(mass);
+        int min = WorkFromArray.minimumElementOfArrayInt(mass);
+        System.out.println(max);
+        System.out.println(min);
+
         /*
         //6.1. Четные и нечетные числа.
         System.out.print("Четные: ");
@@ -184,6 +204,7 @@ public class HomeWork1_1 {
         if (f4==0) System.out.println("таких чисел нет");
         System.out.println(" ");
         */
+        /*
         // 6.7. Элементы, которые равны полусумме соседних элементов.
         System.out.print("Элементы, которые равны полусумме соседних элементов: ");
         float ms1[] = new float[n];
@@ -215,5 +236,6 @@ public class HomeWork1_1 {
         }
         if (f5==0) System.out.println("таких чисел нет");
         System.out.println(" ");
+        */
     }
 }
