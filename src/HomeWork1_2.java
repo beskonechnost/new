@@ -262,7 +262,7 @@ public class HomeWork1_2 {
 
         //9.Ввести с консоли n-размерность матрицы a [n] [n].
         // Задать значения элементов матрицы в интервале значений от -n до n с помощью датчика случайных чисел.
-        System.out.print("Введите размерность матрицы: ");
+        /*System.out.print("Введите размерность матрицы: ");
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
         int a[][] = new int[n][n];
@@ -274,6 +274,7 @@ public class HomeWork1_2 {
             System.out.println(" ");
         }
         System.out.println(" ");
+        */
         /*
         //9.1. Упорядочить строки (столбцы) матрицы в порядке возрастания значений.
         //сортировка по строкам
@@ -322,7 +323,7 @@ public class HomeWork1_2 {
             System.out.println(Arrays.toString(a[i])+" ");
         }
        */
-
+        /*
         //9.3. Найти и вывести наибольшее число возрастающих (убывающих) элементов матрицы, идущих подряд.
         int aOne[] = new int[n*n];
         int counterN = 0, indexIN = -1;
@@ -359,9 +360,7 @@ public class HomeWork1_2 {
             if (i>=indexIN&i<=(indexIN+counterN))
                 System.out.println(aOne[i]);
         }
-
-
-
+        */
         /*
         //9.4. Найти сумму элементов матрицы, расположенных между первым и вторым положительными элементами каждой строки.
         int aSum[] = new int[n];
@@ -463,17 +462,17 @@ public class HomeWork1_2 {
             System.out.println(" ");
         }
         */
-        /*
+
         //9.7. Уплотнить матрицу, удаляя из нее строки и столбцы, заполненные нулями.
-        int a0[] = new int[n];
+        int a[][] = new int[][]{{1, 1, 1},{0, 0, 0},{2, 2, 2}};
+        int a0[] = new int[3];
         for (int i = 0; i < a0.length; i++){
             a0[i]=0;
         }
         for (int i = 0; i < a.length; i++){
             if (Objects.equals(a[i],a0)) System.arraycopy(a, i+1, a, i, a.length-i-1);
         }
-        Arrays.toString(a);
-        */
+        System.out.println(Arrays.deepToString(a));
         /*
         //9.8. Преобразовать строки матрицы таким образом, чтобы элементы, равные нулю, располагались после всех остальных.
         for (int k0 = 0; k0<a.length-1; k0++) {
