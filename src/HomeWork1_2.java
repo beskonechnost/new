@@ -1,6 +1,7 @@
 import com.UkranianITSchool.Korotkov.WorkFromArray;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -320,50 +321,47 @@ public class HomeWork1_2 {
         for (int i = 0; i < a.length; i++) {
             System.out.println(Arrays.toString(a[i])+" ");
         }
-        */
-        /*
+       */
+
         //9.3. Найти и вывести наибольшее число возрастающих (убывающих) элементов матрицы, идущих подряд.
-        int indexai = 0, indexaj = 0, indexbi = 0, indexbj = 0, countN = 0;
-        for (int i = 0; i < a.length-1; i++){
-            int count = 0;
-            for(int j = 0; j < a.length-1; j++){
-                if (j < a.length-1){
-                    if (a[i][j]<a[i][j+1]){
-                        int ai = i, aj = j, bi = i, bj = j;
-                        count +=1;
-                        if (count > countN){
-                            countN = count;
-                            indexai = ai;
-                            indexaj = aj;
-                            indexbi = bi;
-                            indexbj = bj;
-                        }
-                    } else {
-                        count = 0;
+        int aOne[] = new int[n*n];
+        int counterN = 0, indexIN = -1;
+        for (int i = 0; i < a.length; i++){
+            System.arraycopy(a[i], 0, aOne, i*a.length, a.length);
+        }
+        int counter = 0, indexI = -1, f =0;
+        for (int i = 0; i < aOne.length; i++){
+            if (i<aOne.length-1) {
+                if (aOne[i] < aOne[i + 1] & f == 1) {
+                    counter += 1;
+                    if (counter>counterN){
+                        counterN = counter;
+                        indexIN = indexI;
                     }
                 }
-                if (j == a.length-1){
-                    if (i<a.length-1){
-                       if (a[i][j]<a[i+1][0]){
-                           int ai = i, aj = j, bi = i+1, bj = 0;
-                           count +=1;
-                           if (count > countN){
-                               countN = count;
-                               indexai = ai;
-                               indexaj = aj;
-                               indexbi = bi;
-                               indexbj = bj;
-                           }
-                       }else {
-                           count = 0;
-                       }
+                if (aOne[i] >= aOne[i + 1] & f == 1) {
+                    f=0;
+                    counter = 0;
+                }
+                if (aOne[i] < aOne[i + 1] & f == 0) {
+                    indexI = i;
+                    counter += 1;
+                    f = 1;
+                    if (counter>counterN){
+                        counterN = counter;
+                        indexIN = indexI;
                     }
                 }
             }
         }
-        System.out.println(countN);
-        System.out.println(indexai+" "+indexaj+" "+indexbi+" "+indexbj);
-        */
+        System.out.println(indexIN+" "+counterN);
+        for (int i =0; i<aOne.length; i++){
+            if (i>=indexIN&i<=(indexIN+counterN))
+                System.out.println(aOne[i]);
+        }
+
+
+
         /*
         //9.4. Найти сумму элементов матрицы, расположенных между первым и вторым положительными элементами каждой строки.
         int aSum[] = new int[n];
@@ -394,6 +392,11 @@ public class HomeWork1_2 {
             aSum[i]=sumBetweenPositiv;
         }
         System.out.println(Arrays.toString(aSum));
+        int summa = 0;
+            for (int i = 0; i < aSum.length; i++){
+            summa +=aSum[i];
+            }
+            System.out.println(Arrays.toString(summa));
         */
         //9.5. Повернуть матрицу на 90 (180, 270) градусов против часовой стрелки.
         /*
@@ -460,10 +463,17 @@ public class HomeWork1_2 {
             System.out.println(" ");
         }
         */
-
+        /*
         //9.7. Уплотнить матрицу, удаляя из нее строки и столбцы, заполненные нулями.
-        
-
+        int a0[] = new int[n];
+        for (int i = 0; i < a0.length; i++){
+            a0[i]=0;
+        }
+        for (int i = 0; i < a.length; i++){
+            if (Objects.equals(a[i],a0)) System.arraycopy(a, i+1, a, i, a.length-i-1);
+        }
+        Arrays.toString(a);
+        */
         /*
         //9.8. Преобразовать строки матрицы таким образом, чтобы элементы, равные нулю, располагались после всех остальных.
         for (int k0 = 0; k0<a.length-1; k0++) {
