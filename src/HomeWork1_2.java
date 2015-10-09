@@ -1,3 +1,6 @@
+import com.UkranianITSchool.Korotkov.WorkFromArray;
+
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -309,6 +312,12 @@ public class HomeWork1_2 {
         }
         */
         //9.2. Выполнить циклический сдвиг заданной матрицы на k позиций вправо (влево, вверх, вниз).
+        System.out.print("Введите сдвиг k: ");
+        int k = scan.nextInt();
+        WorkFromArray.shift(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(Arrays.toString(a[i])+" ");
+        }
         /*
         //9.3. Найти и вывести наибольшее число возрастающих (убывающих) элементов матрицы, идущих подряд.
         int i_start =0, j_start =0, i_finish =0, j_finish =0, i_buf = 0, j_buf = 0; int count1 = 0;

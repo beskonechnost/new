@@ -65,4 +65,37 @@ public class WorkFromArray {
         }
         return minimum;
     }
+    public static void shift(int array[][]){
+        int x = array[0][0];
+        for (int indexI = array.length-1; indexI >=0; indexI--) {
+            int buffer = array[indexI][0];
+            System.arraycopy(array[indexI], 1, array[indexI], 0, array.length-1);
+            if (indexI == array.length-1){
+                array[indexI][indexI] = x;
+            } else {
+                if (indexI != 0){
+                    array[indexI-1][array.length-1]=buffer;
+                } else {
+
+                }
+            }
+
+
+
+            /*
+            for (int indexJ = 0; indexJ < array.length; indexJ++){
+                if (indexJ< array.length-2){
+                    buffer =  array[indexI][indexJ+1];
+                    array[indexI][indexJ+1] = array[indexI][indexJ];
+                }
+                if (indexJ==array.length-1){
+                    if (indexI<array.length-2){
+                        buffer =  array[indexI+1][indexJ];
+                        array[indexI][indexJ+1] = array[indexI][indexJ];
+                    }
+                }
+            }
+            */
+        }
+    }
 }
