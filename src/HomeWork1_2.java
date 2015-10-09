@@ -460,59 +460,35 @@ public class HomeWork1_2 {
             System.out.println(" ");
         }
         */
+
         //9.7. Уплотнить матрицу, удаляя из нее строки и столбцы, заполненные нулями.
-        int a0i[]=new int[n];
-        int a0j[]=new int[n];
-        for (int i = 0; i <a.length; i++){
-            a0i[i]=-1;
-            a0j[i]=-1;
-        }
-        for (int i = 0; i < a.length; i++){
-            int f = 0;
-            int count = 0;
-            for (int j = 0; j<a.length; j++){
-                if (f==0) {
-                    if (a[i][0] == 0) {
-                        f = 1;
-                        count +=1;
+        
+
+        /*
+        //9.8. Преобразовать строки матрицы таким образом, чтобы элементы, равные нулю, располагались после всех остальных.
+        for (int k0 = 0; k0<a.length-1; k0++) {
+            for (int i = 0; i < a.length; i++) {
+                for (int j = 0; j < a.length; j++) {
+                    if (a[i][j] == 0) {
+                        if (j < a.length - 1) {
+                            int tmp = a[i][j];
+                            System.arraycopy(a[i], j + 1, a[i], j, a.length - j - 1);
+                            a[i][a.length - 1] = tmp;
+                        }
+                        if (j == a.length - 1) {
+                            continue;
+                        }
                     }
                 }
-                if (f==1){
-                    if (a[i][j]!=0){
-                        f=2;
-                        break;
-                    }else count +=1;
-                }
-                if (f==2)break;
             }
-            if (count == a.length) a0i[i]=i;
-        } //тут мы определяем номера строк которые забиты 0
-        for (int i = 0; i <a.length; i++){
-            a0i[i]=-1;
-            a0j[i]=-1;
         }
         for (int i = 0; i < a.length; i++){
-            int f = 0;
-            int count = 0;
-            for (int j = 0; j<a.length; j++){
-                if (f==0) {
-                    if (a[0][i] == 0) {
-                        f = 1;
-                        count +=1;
-                    }
-                }
-                if (f==1){
-                    if (a[j][i]!=0){
-                        f=2;
-                        break;
-                    }else count +=1;
-                }
-                if (f==2)break;
+            for (int j = 0; j < a.length; j++){
+                System.out.print(a[i][j]+" ");
             }
-            if (count == a.length) a0j[i]=i;
-        } //тут мы определяем номера столбцов которые забиты 0
-        System.out.println(Arrays.toString(a0i));
-        System.out.println(Arrays.toString(a0j));
+            System.out.println(" ");
+        }
+        */
 
     }
 }
