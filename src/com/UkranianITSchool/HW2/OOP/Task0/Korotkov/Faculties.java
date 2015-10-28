@@ -47,4 +47,8 @@ public class Faculties {
             count++;
         }
     }
+
+    public void StudentsOfTheFaculty (String TheNameOfTheFaculty) {
+        if (TheNameOfTheFaculty.equals(nameFaculty)) System.out.println(toString());
+    }
 }

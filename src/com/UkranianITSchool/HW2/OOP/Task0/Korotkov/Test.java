@@ -46,6 +46,26 @@ public class Test {
         Student[] stud4course = new Student[3];
         Course fourth = new Course(4, stud4course);
         fourth.listStudentsCourse(a);
-        System.out.println(fourth.toString());
+        //System.out.println(fourth.toString());
+
+        Student[] stud3course = new Student[3];
+        Course third = new Course(3, stud3course);
+        third.listStudentsCourse(a);
+        //System.out.println(third.toString());
+
+        Student[] stud2course = new Student[3];
+        Course second = new Course(2, stud2course);
+        second.listStudentsCourse(a);
+        //System.out.println(second.toString());
+
+        //c) список студентов, родившихся после заданного года;
+        Date d = new Date(1991, 11, 11);
+        for (int i  = 0; i < a.length; i++){
+            a[i].studentsBornAfter(d);
+        }
+
+        //a) список студентов заданного факультета;
+        String nameF = "Economic";
+        economic.StudentsOfTheFaculty(nameF);
     }
 }
