@@ -44,7 +44,7 @@ public class Test {
                     }
             }
         System.out.println();
-        System.out.print("Стоимость вашего подарка:" + myPresent.getPrice()+", вес подарка: "+myPresent.getWeight()+", сахара в конфетах подарка: "+myPresent.getSugarCandy());
+        System.out.print("Стоимость вашего подарка: " + myPresent.getPrice()+", вес подарка: "+myPresent.getWeight()+", сахара в конфетах подарка: "+myPresent.getSugarCandy());
         System.out.println();
         System.out.println("Отсортеруем конфеты в нашем подарке по цене, в порядке возростания: ");
         myPresent.sortForPrise();

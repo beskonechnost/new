@@ -5,7 +5,11 @@ import java.util.Arrays;
 /**
  * Created by Андрей on 28.10.2015.
  */
-public class Present extends Candy{
+public class Present{
+    private String name;
+    private double weight;
+    private double price;
+    private double sugarCandy;
     private Candy[] candyPresent;
     private int countCandyInPresent = 0;
     private double pricePresentPackaging;
@@ -13,12 +17,39 @@ public class Present extends Candy{
     public Present() {
     }
     public Present(String name, double weight, double price, double sugarCandy, Candy[] candyPresent, int countCandyInPresent, double pricePresentPackaging) {
-        super(name, weight, price, sugarCandy);
+        this.name = name;
+        this.weight = weight;
+        this.price = price;
+        this.sugarCandy = sugarCandy;
         this.candyPresent = candyPresent;
         this.countCandyInPresent = countCandyInPresent;
         this.pricePresentPackaging = pricePresentPackaging;
     }
 
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+    public double getPrice() {
+        return price;
+    }
+    public void setPrice(double price) {
+        this.price = price;
+    }
+    public double getSugarCandy() {
+        return sugarCandy;
+    }
+    public void setSugarCandy(double sugarCandy) {
+        this.sugarCandy = sugarCandy;
+    }
     public Candy[] getCandyPresent() {
         return candyPresent;
     }
@@ -40,12 +71,16 @@ public class Present extends Candy{
 
     public void setCandyPresent1(Candy candy, int n) {
         this.candyPresent[n] = candy;
-    }
+    }//метод позволяющий менять элемент массива на нужную нам сладость. Используеться при сортировке.
 
     @Override
     public String toString() {
         return "Present{" +
-                "candyPresent=" + Arrays.toString(candyPresent) +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", price=" + price +
+                ", sugarCandy=" + sugarCandy +
+                ", candyPresent=" + Arrays.toString(candyPresent) +
                 ", countCandyInPresent=" + countCandyInPresent +
                 ", pricePresentPackaging=" + pricePresentPackaging +
                 '}';
@@ -56,7 +91,7 @@ public class Present extends Candy{
         setCountCandyInPresent(getCountCandyInPresent()+1);
         this.setWeight(this.getWeight()+candy.getWeight());
         this.setPrice(this.getPrice()+candy.getPrice());
-        this.setSugarCandy(this.getSugarCandy()+candy.getSugarCandy());
+        this.setSugarCandy(this.getSugarCandy()+candy.getSugarSweetness());
     }
     public void sortForPrise() {
         for (int i = getCountCandyInPresent() - 1; i >= 0; i--) {
@@ -72,8 +107,8 @@ public class Present extends Candy{
     }
 
     public void rangeSugar (double minSugarInCandy, double maxSugarInCandy){
-        for (int i = 0; i < this.candyPresent.length; i++){
-            if ((this.getCandyPresent()[i].getSugarCandy()>minSugarInCandy)&&(this.getCandyPresent()[i].getSugarCandy()<maxSugarInCandy)){
+        for (int i = 0; i < this.countCandyInPresent; i++){
+            if ((this.getCandyPresent()[i].getSugarSweetness()>minSugarInCandy)&&(this.getCandyPresent()[i].getSugarSweetness()<maxSugarInCandy)){
                 System.out.println(this.candyPresent[i].toString());
             }
         }
