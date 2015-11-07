@@ -66,14 +66,9 @@ public class Student extends Human{
                 '}';
     }
 
-    /*public void studentsBornAfter(Student[] students, Date date){
-        Student s[] = new Student[students.length];
-        int k = 0;
-        for (int i = 0; i < students.length; i++){
-            if (date.after(students[i].getBirthday())){
-               s[k] = students[i];
-                k++;
+    public void studentsBornAfter(Date date){
+            if (this.getBirthday().after(date)){
+                System.out.println(this.toString());
             }
-        }
-    }*/
+    }
 }
