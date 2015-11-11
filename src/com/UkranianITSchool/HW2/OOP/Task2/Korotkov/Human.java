@@ -1,6 +1,7 @@
 package com.UkranianITSchool.HW2.OOP.Task2.Korotkov;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by Андрей on 04.11.2015.
@@ -13,14 +14,19 @@ public abstract class Human {
     private float weight;
 
     public Human() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите пол человека true-муж., false-женский: ");
+        this.sex = scanner.hasNext();
+        System.out.println("Введите имя человека ");
+        this.name = scanner.next();
+        System.out.println("Введите фамилию человека ");
+        this.surname = scanner.next();
+        System.out.println("Рост ");
+        this.height = scanner.nextFloat();
+        System.out.println("Вес ");
+        this.weight = scanner.nextFloat();
     }
-    public Human(boolean sex, String name, String surname, float height, float weight) {
-        this.sex = sex;
-        this.name = name;
-        this.surname = surname;
-        this.height = height;
-        this.weight = weight;
-    }
+
 
     public boolean isSex() {
         return sex;
@@ -124,19 +130,60 @@ public abstract class Human {
 
 
 
-    /*public Human haveARelationship (Human human1){
+    public void haveARelationship (Human human1){
         if ((this.talk(human1)== true)&&(this.tolerateSociety(human1)==true)&&(this.spendTimeTogether(human1)==true)){
             if (this.isSex() == human1.isSex()){
-                return null;
+                System.out.println("Люди одного пола, и они не могут родить ребенка.");
             } else {
                 if (this.isSex()==false){
-                    //Human.this.humanBirth;
+                    humanBirth(human1);
+                } else {
+                    human1.humanBirth(this);
                 }
             }
+        } else {
+            System.out.println("Ничего не вышло. Пара разошлась.");
         }
-    };*/
+    }
+    public Human humanBirth(Human human){
+        if (this.isSex()==true){
+            String test = "Мужик не может родить ребенка!";
+            System.out.println(test);
+            return null;
+        } else {
+            Human newHuman = new Human() {
+                @Override
+                public void beingHuman() {
+                }
+            };
 
-
+            Random random = new Random();
+            double a = random.nextDouble();
+            if (a<=0.5) {
+                newHuman.setSex(true);
+                System.out.println("Поздравляем, у вас мальчик!");
+            }
+            else  {newHuman.setSex(false);
+                System.out.println("Поздравляем, у вас девочка!");
+            }
+            System.out.println("Выберете имя для ребенка и введите его: ");
+            Scanner scanner = new Scanner(System.in);
+            newHuman.setName(scanner.next());
+            newHuman.setSurname(human.getSurname());
+            if (newHuman.isSex() == true){
+                float h1  = (float)(human.getHeight()+0.1*this.getHeight()-this.getHeight());
+                float w1  = (float)(human.getWeight()+0.1*this.getWeight()-this.getWeight());
+                newHuman.setHeight(h1);
+                newHuman.setWeight(w1);
+            } else {
+                float h1  = (float)(this.getHeight()+0.1*human.getHeight()-this.getHeight());
+                float w1  = (float)(this.getWeight()+0.1*human.getWeight()-this.getWeight());
+                newHuman.setHeight(h1);
+                newHuman.setWeight(w1);
+            }
+            return newHuman;
+        }
+    }
 
     public abstract void beingHuman();
 }
