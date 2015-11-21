@@ -7,5 +7,6 @@ public class Of1 {
     public static void main(String[] args) {
         Offes a1 = new Offes("Boss1", 300, City.Lvov);
         System.out.println(a1.toString());
+        a1.equals();
     }
 }

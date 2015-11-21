@@ -35,6 +35,10 @@ public class Offes {
         this.sd = sd;
     }
 
+    public void equals(){
+        System.out.println("ssss");
+    };
+
     @Override
     public String toString() {
         return "Offes{" +
