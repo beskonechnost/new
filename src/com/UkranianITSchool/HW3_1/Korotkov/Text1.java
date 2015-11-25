@@ -49,5 +49,19 @@ public class Text1 {
             }
     }
 
+    public String collectTheTextOfTheWords(){
+        String newText = "";
+        for (int i = 0; i<this.sens.size(); i++){
+            for (int j = 0; j<this.sens.get(i).getWord().size(); j++){
+                if(j<this.sens.get(i).getWord().size()-1) {
+                    newText += this.sens.get(i).getWord().get(j).getWord() + " ";
+                }else {
+                    newText += this.sens.get(i).getWord().get(j).getWord() + String.valueOf(this.sens.get(i).getMarkTheEndOfTheOffer())+" ";
+                }
+            }
+        }
+        return newText;
+    }
+
 
 }
